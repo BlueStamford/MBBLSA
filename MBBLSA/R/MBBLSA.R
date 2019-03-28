@@ -69,7 +69,7 @@ MovingBlockBootstrap<-function(x, y, numPermu=1000, maxDelay=3){
   localscore <- originalSimilarity[1]
   scoreArray<-rep(0,numPermu)
   for (idx in 1:numPermu){
-    scoreArray[idx]<-LocalSimilarity(BlockResample(x), y, maxDelay)
+    scoreArray[idx]<-LocalSimilarity(BlockResample(x), y, maxDelay)[1]
   }
   pValue <- sum(scoreArray>localscore) / numPermu
   value <- t(c(localscore, pValue, originalSimilarity[2:6]))
